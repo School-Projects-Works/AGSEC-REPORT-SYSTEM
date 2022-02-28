@@ -1,0 +1,17 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+
+.addButton{
+    -fx-background-color: #0f3460;
+    
+}
+.searchBar{
+ -fx-background-color: transparent; 
+ -fx-border-color: #0f3460;
+ -fx-border-width:0px 0px 2px 0px;
+}

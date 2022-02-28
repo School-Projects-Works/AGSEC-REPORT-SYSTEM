@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="main_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#handleMouseDrag" onMousePressed="#handleOnMousePress" prefHeight="400.0" prefWidth="650.0" stylesheets="@../styles/loginscreen.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginScreenController">
+   <left>
+      <AnchorPane fx:id="left_pane" onMouseDragged="#handleMouseDrag" onMousePressed="#handleOnMousePress" prefHeight="400.0" prefWidth="325.0" style="-fx-background-color: #0f3460;" BorderPane.alignment="CENTER_LEFT">
+         <children>
+            <ImageView fitHeight="100.0" fitWidth="124.0" layoutX="124.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="207.0" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="101.0" AnchorPane.topAnchor="93.0">
+               <image>
+                  <Image url="@../images/icons8_e-learning_80px.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <Text fill="#f1fafb" layoutX="89.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AGSEC" AnchorPane.bottomAnchor="152.2041015625" AnchorPane.leftAnchor="89.0" AnchorPane.rightAnchor="66.4052734375" AnchorPane.topAnchor="192.9013671875">
+               <font>
+                  <Font name="Bodoni MT Black" size="47.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Text>
+            <Text fill="WHITE" layoutX="58.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STUDENT'S REPORT SYSTEM" textAlignment="JUSTIFY" underline="true">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="16.0" />
+               </font>
+            </Text>
+         </children></AnchorPane>
+   </left>
+   <right>
+      <AnchorPane fx:id="right_pane" onMouseDragged="#handleMouseDrag" onMousePressed="#handleOnMousePress" prefHeight="349.0" prefWidth="325.0" style="-fx-background-color: #f1fafb;" BorderPane.alignment="CENTER_RIGHT">
+         <children>
+            <TextField fx:id="tf_username" layoutX="84.0" layoutY="159.0" onKeyPressed="#handleKeyPresses" prefHeight="25.0" prefWidth="178.0" promptText="User Name" style="-fx-background-color: transparent; -fx-border-color: #0f3460; -fx-border-width: 0px 0px 2px 0px;" stylesheets="@../styles/loginscreen.css" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="63.0">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <PasswordField fx:id="tf_userPassword" layoutX="84.0" layoutY="221.0" onKeyPressed="#handleKeyPresses" prefHeight="25.0" prefWidth="178.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #0f3460; -fx-border-width: 0px 0px 2px 0px;" stylesheets="@../styles/loginscreen.css" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="63.0">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </PasswordField>
+            <JFXButton fx:id="btn_login" buttonType="RAISED" layoutX="112.0" layoutY="291.0" onAction="#logUserIn" prefHeight="33.0" prefWidth="123.0" ripplerFill="#3878bc" style="-fx-background-color: #0f3460;" stylesheets="@../styles/loginscreen.css" text="Login" textFill="#f1fafb" AnchorPane.bottomAnchor="76.0" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="291.0">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </JFXButton>
+            <Text fill="#0f3460" layoutX="100.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADMIN LOGIN" AnchorPane.bottomAnchor="284.7294921875" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="80.77880859375" AnchorPane.topAnchor="87.3388671875">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+               <effect>
+                  <Glow level="0.67" />
+               </effect>
+            </Text>
+            <ImageView fx:id="btn_close" fitHeight="30.0" fitWidth="22.0" layoutX="289.0" layoutY="14.0" onMouseClicked="#closeWindow" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8_multiply_30px.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="22.0" layoutX="62.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8_user_24px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="22.0" layoutX="62.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8_lock_30px.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="txt_error" fill="#f20000" layoutX="85.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="66.720703125" />
+         </children>
+      </AnchorPane>
+   </right>
+   <effect>
+      <DropShadow />
+   </effect>
+</BorderPane>

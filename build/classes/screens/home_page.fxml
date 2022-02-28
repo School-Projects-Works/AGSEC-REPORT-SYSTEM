@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="main_page" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="500.0" minWidth="900.0" prefHeight="580.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Home_pageController">
+   <top>
+      <AnchorPane fx:id="top_pane" onMouseDragged="#handleMouseDrag" onMousePressed="#handleMousePress" prefHeight="137.0" prefWidth="900.0" style="-fx-background-color: #0f3460;" stylesheets="@../styles/home_page.css" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="105.0" fitWidth="120.0" layoutX="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8_e-learning_80px.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <Text fill="#f1fafb" layoutX="147.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AGSEC">
+               <font>
+                  <Font name="Bodoni MT Black" size="46.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Text>
+            <Text fill="WHITE" layoutX="121.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STUDENT'S REPORT SYSTEM" textAlignment="JUSTIFY" underline="true">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="15.0" />
+               </font>
+            </Text>
+            <ImageView fx:id="btn_close" fitHeight="30.0" fitWidth="22.0" layoutX="864.0" layoutY="14.0" onMouseClicked="#handleCloseButton" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+               <image>
+                  <Image url="@../images/icons8_Close_48px.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="btn_maximize" fitHeight="30.0" fitWidth="22.0" layoutX="827.0" layoutY="14.0" onMouseClicked="#handleMaximizeButton" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="51.0" AnchorPane.topAnchor="14.0">
+               <image>
+                  <Image url="@../images/icons8_full_screen_60px.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="btn_minimize" fitHeight="30.0" fitWidth="22.0" layoutX="793.0" layoutY="14.0" onMouseClicked="#handleMinimizeButton" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="14.0">
+               <image>
+                  <Image url="@../images/icons8_subtract_100px.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <VBox fx:id="left_pane" alignment="CENTER" fillWidth="false" prefHeight="461.0" prefWidth="146.0" style="-fx-background-color: #0f3460;" HBox.hgrow="NEVER">
+               <children>
+                  <JFXButton graphicTextGap="15.0" onAction="#handleStudentClick" prefHeight="40.0" prefWidth="148.0" styleClass="sidebarItem" stylesheets="@../styles/home_page.css" text="Students      " textFill="WHITE" VBox.vgrow="NEVER">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8_add_user_group_man_man_60px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <JFXButton graphicTextGap="15.0" layoutX="10.0" layoutY="46.0" prefHeight="40.0" prefWidth="148.0" styleClass="sidebarItem" stylesheets="@../styles/home_page.css" text="Scores          " textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8_scorecard_100px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton graphicTextGap="15.0" layoutX="10.0" layoutY="82.0" prefHeight="40.0" prefWidth="148.0" styleClass="sidebarItem" stylesheets="@../styles/home_page.css" text="Report         " textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8_report_card_60px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <JFXButton graphicTextGap="15.0" layoutX="10.0" layoutY="118.0" prefHeight="40.0" prefWidth="148.0" styleClass="sidebarItem" stylesheets="@../styles/home_page.css" text="Report Files" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8_folder_60px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <JFXButton graphicTextGap="15.0" layoutX="10.0" layoutY="276.0" prefHeight="40.0" prefWidth="148.0" styleClass="sidebarItem" stylesheets="@../styles/home_page.css" text="Backup         " textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8_cloud_backup_restore_60px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <Separator prefHeight="42.0" prefWidth="146.0" />
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_copyright_48px.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Bate Source Tech." underline="true">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Bell MT" size="12.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <StackPane fx:id="center_container" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #146886;" styleClass="mainFxmlClass" stylesheets="@../styles/home_page.css" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+   </center>
+</BorderPane>
