@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
@@ -27,9 +25,23 @@
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </TextField>
+                        <Button mnemonicParsing="false" onAction="#handleNewStudentClick" styleClass="addButton" stylesheets="@../styles/students_screen.css" text="New Student" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="100.0" />
+                           </HBox.margin>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Button>
                      </children>
                   </HBox>
-                  <JFXButton fx:id="btn_newStudent" graphicTextGap="10.0" maxHeight="-Infinity" onAction="#handleNewStudentClick" prefHeight="29.0" prefWidth="134.0" styleClass="addButton" stylesheets="@../styles/students_screen.css" text="New Student" textFill="WHITE">
+<!--                  <JFXButton fx:id="btn_newStudent" graphicTextGap="10.0" maxHeight="-Infinity" onAction="#handleNewStudentClick" prefHeight="29.0" prefWidth="134.0" styleClass="addButton" stylesheets="@../styles/students_screen.css" text="New Student" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -49,7 +61,7 @@
                      <HBox.margin>
                         <Insets left="15.0" right="15.0" />
                      </HBox.margin>
-                  </JFXButton>
+                  </JFXButton>-->
                </children>
                <padding>
                   <Insets bottom="10.0" top="10.0" />

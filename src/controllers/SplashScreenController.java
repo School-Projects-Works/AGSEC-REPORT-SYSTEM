@@ -2,6 +2,7 @@
 package controllers;
 
 import global_classes.GlobalFuncions;
+import global_classes.MongoDbAdmin;
 import global_classes.MongodbServices;
 import java.io.IOException;
 import java.net.URL;
@@ -39,7 +40,7 @@ public class SplashScreenController implements Initializable {
      * Initializes the controller class.
      */
     GlobalFuncions gf=new GlobalFuncions();
-    MongodbServices MS=new MongodbServices();
+    MongoDbAdmin MA=new MongoDbAdmin();
     @FXML
     private Text img;
   
@@ -77,9 +78,9 @@ public class SplashScreenController implements Initializable {
                 i+=5;
                 //progress.setProgress(i);
                 if (i == 100) {
-                    if(MS.databaseConnection()!=null){
+                    if(MA.databaseConnection()!=null){
                         
-                       MS.createConfigurations();
+                       MA.createConfigurations();
                         _openDashBoard(event);
                     }else{
                         gf.inforAlert("Database Error", "Unable to Connect to Database Client", Alert.AlertType.ERROR);

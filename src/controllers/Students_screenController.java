@@ -1,6 +1,5 @@
 package controllers;
 
-import com.jfoenix.controls.JFXButton;
 import global_classes.ActionButtonTableCell;
 import global_classes.GlobalFuncions;
 import global_classes.MongodbServices;
@@ -9,11 +8,8 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
-import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
@@ -33,6 +29,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import pojo_classes.DatabaseName;
 import pojo_classes.Students;
 
 /**
@@ -43,8 +40,6 @@ import pojo_classes.Students;
 public class Students_screenController implements Initializable {
 
     @FXML
-    private JFXButton btn_newStudent;
-    @FXML
     private TextField tf_search;
 
     /**
@@ -53,7 +48,6 @@ public class Students_screenController implements Initializable {
     MongodbServices MS = new MongodbServices();
     GlobalFuncions gf = new GlobalFuncions();
     private ObservableList<Students> allStudents;
-       FilteredList<Students> searchList;
 
     @FXML
     private TableView<Students> tbv_students;
@@ -78,8 +72,24 @@ public class Students_screenController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        getStudents();
+        getStudents();        
+        tf_search.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (tf_search.getText().isEmpty()) {
+//            searchList.setPredicate(null);
+        } else {
+            Predicate<Students> filter
+                    = i -> i.getId().toLowerCase().contains(tf_search.getText().toLowerCase())
+                    || i.getId().toLowerCase().contains(tf_search.getText().toLowerCase())
+                    || i.getStudentClass().toLowerCase().contains(tf_search.getText().toLowerCase())
+                    || i.getStudentGender().toLowerCase().equalsIgnoreCase(tf_search.getText().toLowerCase())
+                    || i.getStudentName().toLowerCase().contains(tf_search.getText().toLowerCase())
+                    || i.getStudentSubjects().contains(tf_search.getText().toLowerCase())
+                    || i.getStudentHouse().toLowerCase().contains(tf_search.getText().toLowerCase());
 
+//            searchList.setPredicate(filter);
+            //allStudents=FXCollections.observableArrayList(searchList);
+        }
+        });
     }
 
     @FXML
@@ -104,14 +114,14 @@ public class Students_screenController implements Initializable {
                 return new Task<ObservableList<Students>>() {
                     @Override
                     protected ObservableList<Students> call() throws Exception {
-                        return MS.getAllStudents();
+                        return MS.getAllStudents(new DatabaseName().getDatabase());
                     }
                 };
             }
         };
         service.setOnSucceeded((WorkerStateEvent event) -> {
             allStudents = service.getValue();
-             searchList = new FilteredList<>(allStudents);
+//            searchList = new FilteredList<>(allStudents);
             Stage stage = (Stage) tbv_students.getScene().getWindow();
             col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
             col_name.setCellValueFactory(new PropertyValueFactory<>("studentName"));
@@ -143,7 +153,7 @@ public class Students_screenController implements Initializable {
                 alert.getDialogPane().getStylesheets().add("/styles/dialog.css");
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.orElse(cancel) == submit) {
-                    if (MS.deleteStudent(p.getId()) != null) {
+                    if (MS.deleteStudent(new DatabaseName().getDatabase(),p.getId()) != null) {
                         getStudents();
                         gf.showToast("Sudent deleted Succefully", stage);
                     } else {
@@ -154,33 +164,20 @@ public class Students_screenController implements Initializable {
             }));
 
             tbv_students.setItems(null);
-            tbv_students.setItems(searchList);
+            tbv_students.setItems(allStudents);
             tbv_students.getSelectionModel().clearSelection();
+          
         });
         service.start();
     }
 
+    public void updateList(){
+        allStudents=MS.getAllStudents(new DatabaseName().getDatabase());
+    }
+
     @FXML
     private void searchTyping(KeyEvent event) {
-     
-        if (tf_search.getText().isEmpty()) {
-            searchList.setPredicate(null);
-           
-        } else {
-           
-           // allStudents=allStudents.filtered(stu->stu.getId().toLowerCase().contains(""));
-           Predicate<Students> filter
-                    = i -> i.getId().toLowerCase().contains(tf_search.getText().toLowerCase())
-                    || i.getId().toLowerCase().contains(tf_search.getText().toLowerCase())
-                    || i.getStudentClass().toLowerCase().contains(tf_search.getText().toLowerCase())
-                    || i.getStudentGender().toLowerCase().equalsIgnoreCase(tf_search.getText().toLowerCase())
-                    || i.getStudentName().toLowerCase().contains(tf_search.getText().toLowerCase())
-                    || i.getStudentSubjects().contains(tf_search.getText().toLowerCase())
-                    || i.getStudentHouse().toLowerCase().contains(tf_search.getText().toLowerCase());
-
-            searchList.setPredicate(filter);
-            //allStudents = searchList;
-        }
     }
+   
 
 }

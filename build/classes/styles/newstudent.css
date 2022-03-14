@@ -1,12 +1,72 @@
-/*
- * Empty Stylesheet file.
- */
+
 
 .mainFxmlClass {
+    -fx-background-color: #0f3460;
+}
+
+.button{
+    -fx-font-weight:bold;
+    -fx-background-color: #ffffff;
+    -fx-text-fill:  #000000;
+    -fx-background-radius:10;
+    -fx-fill: black
 
 }
+.button:hover{
+    -fx-font-weight:bold;
+    -fx-background-color: #f1fafb;
+    -fx-text-fill:  #000000;
+    -fx-background-radius:10;
+    -fx-border-color: #e67419;
+    -fx-border-radius: 10;
+    -fx-border-width: 3px;
+ -fx-fill: black
+}
+.button:pressed{
+    -fx-font-weight:bold;
+    -fx-background-color: #ffffff;
+    -fx-text-fill:  #000000;
+    -fx-background-radius:12;
+    -fx-border-color: #e67419;
+    -fx-border-radius: 11;
+    -fx-rotate: 5;
+    -fx-border-width: 3px;
+     -fx-fill: black
+}
+
+
+.alt_button{
+    -fx-font-weight:bold;
+    -fx-background-color: #0f3460;
+    -fx-text-fill:  white;
+    -fx-background-radius:10;
+    
+
+}
+.alt_button:hover{
+    -fx-font-weight:bold;
+    -fx-background-color: #0f3460;
+    -fx-text-fill:  white;
+    -fx-background-radius:10;
+    -fx-border-color: white;
+    -fx-border-radius: 10;
+    -fx-border-width: 3px;
+  
+}
+.alt_button:pressed{
+    -fx-font-weight:bold;
+    -fx-background-color: #0f3460;
+    -fx-text-fill:  white;
+    -fx-background-radius:12;
+    -fx-border-color: #e67419;
+    -fx-border-radius: 11;
+    -fx-rotate: 5;
+    -fx-border-width: 3px;
+    
+}
+
 .textField{
     -fx-background-color: transparent;
-    -fx-border-color: #0f3460;
+    -fx-border-color: #e67419;
     -fx-border-width: 0px 0px 2px 0px
 }

@@ -6,15 +6,12 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.FindOneAndUpdateOptions;
-import com.mongodb.client.model.ReturnDocument;
-import java.time.Instant;
 import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.bson.Document;
-import org.bson.conversions.Bson;
-import org.bson.types.ObjectId;
+import pojo_classes.ElectiveSubjects;
+import pojo_classes.Scores;
 import pojo_classes.Students;
 
 /**
@@ -29,43 +26,15 @@ public class MongodbServices {
 
     }
 
-    public void createConfigurations() {
-        MongoDatabase sampleTrainingDB = this.databaseConnection().getDatabase("Student_Report");
-        MongoCollection<Document> adminCollection = sampleTrainingDB.getCollection("admin");
-        Document admin = adminCollection.find(new Document("id", "admin".hashCode())).first();
-        if (admin == null || admin.isEmpty()) {
-            Document newAdmin = new Document("_id", new ObjectId());
-            newAdmin.append("userName", "admin")
-                    .append("password", "admin")
-                    .append("id", "admin".hashCode())
-                    .append("createAt", Instant.now());
-            adminCollection.insertOne(newAdmin);
-        }
+    public MongoDatabase getDataBase(String year){
+      return this.databaseConnection().getDatabase(year);  
     }
+   
 
-    public boolean loginAdmin(String userName, String password) {
-        MongoDatabase sampleTrainingDB = this.databaseConnection().getDatabase("Student_Report");
-        MongoCollection<Document> adminCollection = sampleTrainingDB.getCollection("admin");
-        BasicDBObject criteria = new BasicDBObject();
-        criteria.append("userName", userName);
-        criteria.append("password", password);
-        Document admin = adminCollection.find(criteria).first();
-        return admin != null && !admin.isEmpty();
-
-    }
-
-    public Document updateDocument(String collection, Bson filter, Bson updates) {
-        MongoDatabase sampleTrainingDB = this.databaseConnection().getDatabase("Student_Report");
-        MongoCollection<Document> dataCollection = sampleTrainingDB.getCollection(collection);
-        FindOneAndUpdateOptions optionAfter = new FindOneAndUpdateOptions().returnDocument(ReturnDocument.AFTER);
-        return dataCollection.findOneAndUpdate(filter, updates, optionAfter);
-    }
-
-    public ObservableList<Students> saveStudent(Students data) {
-        MongoDatabase database = this.databaseConnection().getDatabase("Student_Report");
+    public ObservableList<Students> saveStudent(String dataBase,Students data) {
+        MongoDatabase database = this.databaseConnection().getDatabase(dataBase);
         MongoCollection<Document> dataCollection = database.getCollection("students");
         dataCollection.insertOne(data.toBsonDocs());
-
         ArrayList<Students> listOfStudents = new ArrayList<>();
         MongoCursor<Document> cursor = dataCollection.find().iterator();
         while (cursor.hasNext()) {
@@ -74,8 +43,8 @@ public class MongodbServices {
         return FXCollections.observableArrayList(listOfStudents);
     }
 
-    public ObservableList<Students> getAllStudents() {
-        MongoDatabase database = this.databaseConnection().getDatabase("Student_Report");
+    public ObservableList<Students> getAllStudents(String databaseName) {
+        MongoDatabase database = this.databaseConnection().getDatabase(databaseName);
         MongoCollection<Document> dataCollection = database.getCollection("students");
         ArrayList<Students> listOfStudents = new ArrayList<>();
         MongoCursor<Document> cursor = dataCollection.find().iterator();
@@ -86,10 +55,53 @@ public class MongodbServices {
         // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public Document deleteStudent(String id) {
-        MongoDatabase database = this.databaseConnection().getDatabase("Student_Report");
+    public Document deleteStudent(String databaseName,String id) {
+        MongoDatabase database = this.databaseConnection().getDatabase(databaseName);
         MongoCollection<Document> dataCollection = database.getCollection("students");
        return dataCollection.findOneAndDelete(new Document("id", id));
     }
+    
+    public ObservableList<Scores> getAllScores(String databaseName,String term) {
+        MongoDatabase database = this.databaseConnection().getDatabase(databaseName);
+        MongoCollection<Document> dataCollection = database.getCollection("scores");
+        ArrayList<Scores> listOfScores = new ArrayList<>();
+        MongoCursor<Document> cursor = dataCollection.find(new BasicDBObject("term",term) ).iterator();
+        while (cursor.hasNext()) {
+            listOfScores.add(new Scores().fromDocument(cursor.next()));
+        }
+        return FXCollections.observableArrayList(listOfScores);
+       
+    }
+    
+     public ObservableList<Scores> getScoresBySubject(String databaseName,String subject,String term) {
+        MongoDatabase database = this.databaseConnection().getDatabase(databaseName);
+        MongoCollection<Document> dataCollection = database.getCollection("scores");
+        ArrayList<Scores> listOfScores = new ArrayList<>(); 
+         BasicDBObject criteria = new BasicDBObject();
+        criteria.append("subject", subject);
+        criteria.append("term", term);
+        MongoCursor<Document> cursor = dataCollection.find(criteria).iterator();
+        while (cursor.hasNext()) {
+            listOfScores.add(new Scores().fromDocument(cursor.next()));
+        }
+        return FXCollections.observableArrayList(listOfScores);
+       
+    }
+    
+    
+    public String saveElectiveSubject(ElectiveSubjects data) {
+        MongoDatabase database = this.databaseConnection().getDatabase("Student_Report");
+        MongoCollection<Document> dataCollection = database.getCollection("electives");
+        Document subject = dataCollection.find(new Document("id", data.getId())).first();
+        if (subject == null || subject.isEmpty()) {
+        dataCollection.insertOne(data.toBsonDocs());
+        return "Subject saved successfully";
+        }else{
+            return "Subject alredy Exist";
+        }
+        
+    }
 
 }
+
+

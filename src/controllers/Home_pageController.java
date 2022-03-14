@@ -1,8 +1,10 @@
 package controllers;
 
 import global_classes.GlobalFuncions;
+import global_classes.MongoDbAdmin;
 import java.io.IOException;
 import java.net.URL;
+import java.time.Year;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +19,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import pojo_classes.DatabaseName;
 
 /**
  * FXML Controller class
@@ -48,13 +51,16 @@ public class Home_pageController implements Initializable {
 
     
     GlobalFuncions gf=new GlobalFuncions();
+     MongoDbAdmin MA = new MongoDbAdmin();
 
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {    
         selectedPage="Student";
-          gf.sideBarClick(center_container, "/screens/Students_screen.fxml");
-         
+          gf.sideBarClick(center_container, "/screens/Students_screen.fxml"); 
+         new DatabaseName().setDatabase(Year.now().toString());
+        
+        
          
     }
 
@@ -97,8 +103,7 @@ public class Home_pageController implements Initializable {
             stage.setHeight(bounds.getHeight());
         } else {
             stage.setWidth(900);
-            stage.setHeight(580);
-        
+            stage.setHeight(580);        
             Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
             stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
             stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
@@ -115,7 +120,33 @@ public class Home_pageController implements Initializable {
     private void handleStudentClick(ActionEvent event) throws IOException {
         if(!"Student".equals(selectedPage)){
              gf.sideBarClick(center_container, "/screens/Students_screen.fxml");
+            selectedPage= "Student";
         }                   
+    }
+
+
+    @FXML
+    private void handleScoreClick(ActionEvent event) {
+         if(!"Scores".equals(selectedPage)){
+             gf.sideBarClick(center_container, "/screens/Scores_Screen.fxml");
+             selectedPage="Scores";
+        }  
+    }
+
+    @FXML
+    private void handleReportClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleReportFileClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleBackupClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleSettingsClick(ActionEvent event) {
     }
 
 }

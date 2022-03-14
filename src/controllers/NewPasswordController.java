@@ -3,6 +3,7 @@ package controllers;
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Updates.set;
 import global_classes.GlobalFuncions;
+import global_classes.MongoDbAdmin;
 import global_classes.MongodbServices;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -38,7 +39,7 @@ public class NewPasswordController implements Initializable {
      * Initializes the controller class.
      */
     double[] xOffset = {0}, yOffset = {0};
-    MongodbServices MS = new MongodbServices();
+    MongoDbAdmin MA = new MongoDbAdmin();
     GlobalFuncions gf = new GlobalFuncions();
 
     @Override
@@ -53,7 +54,7 @@ public class NewPasswordController implements Initializable {
             txt_error.setText("");
             Bson filter = eq("id", "admin".hashCode());
             Bson updates = set("password", tf_newPassword.getText());
-            if (MS.updateDocument( "admin", filter, updates) != null) {
+            if (MA.updateDocument( "admin", filter, updates) != null) {
                 gf.inforAlert("Change of Password", "Password Changes Successfully.. Login Again", Alert.AlertType.INFORMATION);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.close();
@@ -97,7 +98,7 @@ public class NewPasswordController implements Initializable {
                     txt_error.setText("");
                     Bson filter = eq("id", "admin".hashCode());
                     Bson updates = set("password", tf_newPassword.getText());
-                    if (MS.updateDocument("admin", filter, updates) != null) {
+                    if (MA.updateDocument("admin", filter, updates) != null) {
                         gf.inforAlert("Change of Password", "Password Changes Successfully.. Login Again", Alert.AlertType.INFORMATION);
                         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         stage.close();
