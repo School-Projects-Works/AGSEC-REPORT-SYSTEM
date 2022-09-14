@@ -83,17 +83,17 @@
                         <TableView fx:id="tbv_scores" prefHeight="413.0" prefWidth="852.0" StackPane.alignment="CENTER">
                            <columns>
                               <TableColumn fx:id="col_name" minWidth="80.0" text="Name" />
-                              <TableColumn fx:id="col_subject" maxWidth="200.0" minWidth="80.0" prefWidth="75.0" text="Subject" />
-                              <TableColumn fx:id="col_exercise" maxWidth="80.0" minWidth="70.0" prefWidth="70.0" text="Class&#10;Exercise&#10;(40)" />
-                              <TableColumn fx:id="col_midTerm" maxWidth="80.0" minWidth="70.0" prefWidth="70.0" text="Test &amp;&#10;Mid-Terms&#10;(40)" />
-                              <TableColumn fx:id="col_homeWork" maxWidth="80.0" minWidth="70.0" prefWidth="70.0" text="Home&#10;Work&#10;(20)" />
-                              <TableColumn fx:id="col_total" editable="false" maxWidth="80.0" minWidth="70.0" prefWidth="70.0" resizable="false" sortable="false" text="Total &#10;(100)" />
-                              <TableColumn fx:id="col_classPercent" editable="false" maxWidth="80.0" minWidth="70.0" prefWidth="70.0" resizable="false" sortable="false" text="30%" />
-                              <TableColumn fx:id="col_examsScore" editable="false" maxWidth="80.0" minWidth="70.0" prefWidth="70.0" sortable="false" text="Exams&#10;(100)" />
-                              <TableColumn fx:id="col_examsPercent" editable="false" maxWidth="80.0" minWidth="70.0" prefWidth="70.0" sortable="false" text="70%" />
-                              <TableColumn fx:id="col_overallPercent" editable="false" maxWidth="80.0" minWidth="70.0" prefWidth="70.0" sortable="false" text="Over&#10;All &#10;(100%)" />
-                              <TableColumn fx:id="col_gade" editable="false" maxWidth="80.0" minWidth="70.0" prefWidth="70.0" sortable="false" text="Grade" />
-                              <TableColumn fx:id="col_position" editable="false" maxWidth="80.0" minWidth="70.0" prefWidth="70.0" sortable="false" text="Posi-&#10;tion" />
+                              <TableColumn fx:id="col_subject" maxWidth="200.0" minWidth="120.0" prefWidth="75.0" text="Subject" />
+                              <TableColumn fx:id="col_exercise" maxWidth="70.0" minWidth="60.0" prefWidth="70.0" text="Class&#10;Exercise&#10;(40)" />
+                              <TableColumn fx:id="col_midTerm" maxWidth="70.0" minWidth="60.0" prefWidth="70.0" text="Test &amp;&#10;Mid-Terms&#10;(40)" />
+                              <TableColumn fx:id="col_homeWork" maxWidth="70.0" minWidth="60.0" prefWidth="70.0" text="Home&#10;Work&#10;(20)" />
+                              <TableColumn fx:id="col_total" editable="false" maxWidth="70.0" minWidth="60.0" prefWidth="70.0" resizable="false" sortable="false" text="Total &#10;(100)" />
+                              <TableColumn fx:id="col_classPercent" editable="false" maxWidth="70.0" minWidth="60.0" prefWidth="70.0" resizable="false" sortable="false" text="30%" />
+                              <TableColumn fx:id="col_examsScore" editable="false" maxWidth="70.0" minWidth="60.0" prefWidth="70.0" sortable="false" text="Exams&#10;(100)" />
+                              <TableColumn fx:id="col_examsPercent" editable="false" maxWidth="70.0" minWidth="60.0" prefWidth="70.0" sortable="false" text="70%" />
+                              <TableColumn fx:id="col_overallPercent" editable="false" maxWidth="70.0" minWidth="60.0" prefWidth="70.0" sortable="false" text="Over&#10;All &#10;(100%)" />
+                              <TableColumn fx:id="col_gade" editable="false" maxWidth="70.0" minWidth="60.0" prefWidth="70.0" sortable="false" text="Grade" />
+                              <TableColumn fx:id="col_position" editable="false" maxWidth="70.0" minWidth="60.0" prefWidth="70.0" sortable="false" text="Posi-&#10;tion" />
                               <TableColumn fx:id="col_remarks" editable="false" maxWidth="150.0" minWidth="70.0" prefWidth="90.0" sortable="false" text="Remarks" />
                            </columns>
                            <columnResizePolicy>

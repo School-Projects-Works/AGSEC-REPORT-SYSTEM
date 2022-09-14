@@ -134,7 +134,7 @@ public class Scores_ScreenController implements Initializable {
                 return new Task<ObservableList<Scores>>() {
                     @Override
                     protected ObservableList<Scores> call() throws Exception {
-                        return MS.getAllScores(new DatabaseName().getDatabase());
+                        return null;
                     }
                 };
             }

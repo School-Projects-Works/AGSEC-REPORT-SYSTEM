@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="AGSEC REPORT SYSTEM.jnlp">
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="ADVANCED REPORT SYSTEM.jnlp">
   <information>
-    <title>AGSEC REPORT SYSTEM</title>
+    <title>ADVANCED REPORT SYSTEM</title>
     <vendor>emman</vendor>
     <description>null</description>
     <offline-allowed/>
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="lib\fontawesomefx-8.9.jar" size="571068" download="eager" />
-    <jar href="lib\fontawesomefx-icons525-3.0.0-4.jar" size="110545" download="eager" />
     <jar href="lib\jfoenix-8.0.3.jar" size="2452677" download="eager" />
     <jar href="lib\jfoenix-9.0.10.jar" size="2432549" download="eager" />
     <jar href="lib\mongo-java-driver-3.12.10.jar" size="2314569" download="eager" />
   </resources>
-  <jfx:javafx-desc  width="800" height="600" main-class="agsec.report.system.AGSECREPORTSYSTEM"  name="AGSEC REPORT SYSTEM" />
+  <jfx:javafx-desc  width="800" height="600" main-class="agsec.report.system.AGSECREPORTSYSTEM"  name="ADVANCED REPORT SYSTEM" />
   <update check="always"/>
 </jnlp>

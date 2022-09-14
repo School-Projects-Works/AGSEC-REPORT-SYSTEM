@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="main_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#handleMouseDrag" onMousePressed="#handleOnMousePress" prefHeight="400.0" prefWidth="650.0" stylesheets="@../styles/loginscreen.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginScreenController">
+<BorderPane fx:id="main_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#handleMouseDrag" onMousePressed="#handleOnMousePress" prefHeight="400.0" prefWidth="650.0" stylesheets="@../styles/loginscreen.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginScreenController">
    <left>
       <AnchorPane fx:id="left_pane" onMouseDragged="#handleMouseDrag" onMousePressed="#handleOnMousePress" prefHeight="400.0" prefWidth="325.0" style="-fx-background-color: #0f3460;" BorderPane.alignment="CENTER_LEFT">
          <children>
@@ -25,7 +25,7 @@
                   <DropShadow />
                </effect>
             </ImageView>
-            <Text fill="#f1fafb" layoutX="89.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AGSEC" AnchorPane.bottomAnchor="152.2041015625" AnchorPane.leftAnchor="89.0" AnchorPane.rightAnchor="66.4052734375" AnchorPane.topAnchor="192.9013671875">
+            <Text fill="#f1fafb" layoutX="47.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADVANCE" AnchorPane.bottomAnchor="152.2041015625" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="108.447265625" AnchorPane.topAnchor="192.9013671875">
                <font>
                   <Font name="Bodoni MT Black" size="47.0" />
                </font>
