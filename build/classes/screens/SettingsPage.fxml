@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="437.0" prefWidth="683.0" styleClass="mainFxmlClass" stylesheets="@../styles/settingspage.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controllers.SettingsPageController">
+   <children>
+      <VBox alignment="TOP_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TabPane onMouseDragged="#handleMouseDrag" onMousePressed="#handleMousePress" prefHeight="394.0" prefWidth="683.0" styleClass="mainFxmlClass" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+              <tabs>
+                <Tab text="General">
+                  <content>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label prefHeight="78.0" prefWidth="621.0" text="Provide all the informations requested in this section. Please note that this information will not be requested again, however you can edit them in the settings section of the system." textAlignment="CENTER" textFill="#0f3460" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Bell MT Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="CENTER" prefHeight="46.0" prefWidth="608.0">
+                                 <children>
+                                    <ComboBox fx:id="cb_year" prefHeight="25.0" prefWidth="177.0" promptText="Select start Year" style="-fx-background-color: TRANSPARENT; -fx-border-color: #0f3460; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: black;" styleClass="combo-box" stylesheets="@../styles/delete_button_style.css">
+                                       <HBox.margin>
+                                          <Insets left="20.0" right="20.0" />
+                                       </HBox.margin>
+                                    </ComboBox>
+                                    <ComboBox fx:id="cb_term" layoutX="226.0" layoutY="21.0" prefHeight="25.0" prefWidth="177.0" promptText="Select current Term" style="-fx-background-color: TRANSPARENT; -fx-border-color: #0f3460; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: black;" styleClass="combo-box" stylesheets="@../styles/delete_button_style.css">
+                                       <HBox.margin>
+                                          <Insets left="20.0" right="20.0" />
+                                       </HBox.margin>
+                                    </ComboBox>
+                                 </children>
+                              </HBox>
+                              <Text fx:id="txt_error" fill="#f20000" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" />
+                              <Text fill="#0f3460" strokeType="OUTSIDE" strokeWidth="0.0" text="ADMIN CREDENTIAL">
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                                 <effect>
+                                    <Glow level="0.67" />
+                                 </effect>
+                              </Text>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <ImageView fitHeight="30.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/icons8_user_24px.png" />
+                                       </image>
+                                    </ImageView>
+                                    <TextField fx:id="tf_username" prefHeight="27.0" prefWidth="222.0" promptText="USER NAME" style="-fx-background-color: transparent; -fx-border-color: #0f3460; -fx-border-width: 0px 0px 2px 0px;" stylesheets="@../styles/loginscreen.css">
+                                       <cursor>
+                                          <Cursor fx:constant="TEXT" />
+                                       </cursor>
+                                    </TextField>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <ImageView fitHeight="30.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/icons8_lock_30px.png" />
+                                       </image>
+                                    </ImageView>
+                                    <TextField fx:id="tf_userPassword" prefHeight="27.0" prefWidth="222.0" promptText="ADMIN PASSWORD" style="-fx-background-color: transparent; -fx-border-color: #0f3460; -fx-border-width: 0px 0px 2px 0px;" stylesheets="@../styles/loginscreen.css">
+                                       <cursor>
+                                          <Cursor fx:constant="TEXT" />
+                                       </cursor>
+                                    </TextField>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <ComboBox fx:id="cb_question" prefHeight="27.0" prefWidth="245.0" promptText="Select secret question" style="-fx-background-color: TRANSPARENT; -fx-border-color: #0f3460; -fx-border-width: 0px 0px 2px 0px;" styleClass="combo-box" stylesheets="@../styles/delete_button_style.css">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </ComboBox>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <TextField fx:id="tf_answer" prefHeight="27.0" prefWidth="244.0" promptText="ANSWER TO QUESTION" style="-fx-background-color: transparent; -fx-border-color: #0f3460; -fx-border-width: 0px 0px 2px 0px;" stylesheets="@../styles/loginscreen.css">
+                                       <cursor>
+                                          <Cursor fx:constant="TEXT" />
+                                       </cursor>
+                                    </TextField>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
+                  </content>
+                </Tab>
+                <Tab text="School">
+                  <content>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label prefHeight="89.0" prefWidth="624.0" text="Provide all the informations requested in this section. Please note that this information will not be requested again, however you can edit them in the settings section of the system." textAlignment="CENTER" textFill="#0f3460" wrapText="true">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="15.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox alignment="CENTER" prefHeight="291.0" prefWidth="639.0">
+                                 <children>
+                                    <VBox alignment="CENTER">
+                                       <children>
+                                          <TextField fx:id="tf_schoolName" prefHeight="27.0" prefWidth="366.0" promptText="ENTER SCHOOL NAME" style="-fx-background-color: transparent; -fx-border-color: #0f3460; -fx-border-width: 0px 0px 2px 0px;" stylesheets="@../styles/loginscreen.css">
+                                             <cursor>
+                                                <Cursor fx:constant="TEXT" />
+                                             </cursor>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                          <TextField fx:id="tf_schoolAddress" prefHeight="27.0" prefWidth="366.0" promptText="ENTER SCHOOL ADDRESS" style="-fx-background-color: transparent; -fx-border-color: #0f3460; -fx-border-width: 0px 0px 2px 0px;" stylesheets="@../styles/loginscreen.css">
+                                             <cursor>
+                                                <Cursor fx:constant="TEXT" />
+                                             </cursor>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                          <TextField fx:id="tf_schoolPhone" prefHeight="27.0" prefWidth="366.0" promptText="ENTER SCHOOL CONTACT NUMBER(S)" style="-fx-background-color: transparent; -fx-border-color: #0f3460; -fx-border-width: 0px 0px 2px 0px;" stylesheets="@../styles/loginscreen.css">
+                                             <cursor>
+                                                <Cursor fx:constant="TEXT" />
+                                             </cursor>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="291.0" prefWidth="216.0">
+                                       <children>
+                                          <Label text="School Logo" textFill="#0f3460">
+                                             <font>
+                                                <Font name="Arial Black" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <ImageView fx:id="img_logo" fitHeight="150.0" fitWidth="158.0" onMouseClicked="#handleLogoUpload" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/upload.jpg" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                          <Label prefHeight="45.0" prefWidth="169.0" text="Headmaster Stamp/sign (optional)" textAlignment="CENTER" textFill="#0f3460" wrapText="true">
+                                             <font>
+                                                <Font name="Arial Black" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <ImageView fx:id="img_sign" fitHeight="73.0" fitWidth="148.0" onMouseClicked="#handleSignatureUpload" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../images/signature.png" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                  </content>
+                </Tab>
+                  <Tab text="Subjects">
+                    <content>
+                        <VBox alignment="CENTER">
+                           <children>
+                              <Label prefHeight="89.0" prefWidth="624.0" text="Provide all the informations requested in this section. Please note that this information will not be requested again, however you can edit them in the settings section of the system." textAlignment="CENTER" textFill="#0f3460" wrapText="true">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="281.0" prefWidth="227.0">
+                                       <children>
+                                          <Text fill="#0f3460" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter subjects offered in this school and press on Enter key or Add button to add them one after the other." textAlignment="CENTER" wrappingWidth="227.0">
+                                             <font>
+                                                <Font name="Bell MT Bold" size="15.0" />
+                                             </font>
+                                          </Text>
+                                          <TextField fx:id="tf_subject" onKeyPressed="#handleAddSubjectKeyPressed" prefHeight="26.0" prefWidth="189.0" promptText="Enter  Subject Name" style="-fx-background-color: transparent; -fx-border-color: #0f3460; -fx-border-width: 0px 0px 2px 0px;">
+                                             <VBox.margin>
+                                                <Insets top="50.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                          <Button fx:id="btn_add" mnemonicParsing="false" onAction="#onAddSubject" style="-fx-background-color: #0f3460; -fx-border-radius: 10px; -fx-font-weight: bold;" text="Add Subject" textFill="#f8f3f3">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font>
+                                             <effect>
+                                                <DropShadow />
+                                             </effect>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                             <VBox.margin>
+                                                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                    <ListView fx:id="tbv_subject" prefHeight="275.0" prefWidth="266.0">
+                                       <HBox.margin>
+                                          <Insets left="15.0" right="15.0" />
+                                       </HBox.margin>
+                                    </ListView>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+            <HBox alignment="CENTER">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <children>
+                  <Button fx:id="btn_save" mnemonicParsing="false" onAction="#onSaveConfig" prefHeight="40.0" prefWidth="240.0" styleClass="addButton" stylesheets="@../styles/students_screen.css" text="SAVE CONFIGURATIONS" textFill="#f8f3f3">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <HBox.margin>
+                        <Insets left="40.0" right="80.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btn_clse" mnemonicParsing="false" onAction="#handleClose" prefHeight="29.0" prefWidth="115.0" styleClass="addButton" stylesheets="@../styles/delete_button_style.css" text="Close" textFill="#f8f3f3" visible="false">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <HBox.margin>
+                        <Insets right="40.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -6,10 +6,40 @@
 
 }
 
-.addButton{
+/*.addButton{
     -fx-background-color: #0f3460;
+    -fx-font-size: 12px
+    
+}*/
+
+
+.addButton{
+    -fx-font-weight:bold;
+    -fx-background-color: #0f3460;
+    -fx-text-fill:  #ffffff;
+    -fx-background-radius:10;
+    -fx-font-size: 13px
     
 }
+.addButton:hover{
+    -fx-font-weight:bold;
+    -fx-background-color: #46439B;
+    -fx-text-fill:  #ffffff;
+    -fx-background-radius:10;
+    -fx-border-color: #000000;
+    -fx-border-radius: 10;
+
+}
+.addButton:pressed{
+    -fx-font-weight:bold;
+    -fx-background-color: #ffffff;
+    -fx-text-fill:  #000000;
+    -fx-background-radius:12;
+    -fx-border-color: #000000;
+    -fx-border-radius: 11;
+    -fx-rotate: 5;
+}
+
 .searchBar{
  -fx-background-color: transparent; 
  -fx-border-color: #0f3460;

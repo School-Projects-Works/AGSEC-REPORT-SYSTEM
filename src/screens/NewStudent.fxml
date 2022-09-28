@@ -17,310 +17,333 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="450.0" prefWidth="661.0" styleClass="mainFxmlClass" stylesheets="@../styles/newstudent.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.NewStudentController">
-   <left>
-      <StackPane prefHeight="376.0" prefWidth="340.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
-         <children>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+
+<StackPane fx:id="container" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.NewStudentController">
+   <children>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="450.0" prefWidth="661.0" styleClass="mainFxmlClass" stylesheets="@../styles/newstudent.css">
+         <left>
+            <StackPane prefHeight="376.0" prefWidth="340.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
                <children>
-                  <ComboBox fx:id="cb_year" prefHeight="27.0" prefWidth="183.0" promptText="Select Year" styleClass="textField" />
-                  <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="320.0">
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
-                     </VBox.margin>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID:        ">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
+                        <HBox alignment="CENTER">
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#handleImport" prefHeight="29.0" prefWidth="134.0" styleClass="addButton" stylesheets="@../styles/students_screen.css" text="Import Students" textFill="WHITE">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </Button>
+                              <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleTemplate" prefHeight="29.0" prefWidth="151.0" stylesheets="@../styles/records_button_style.css" text="Download Template" textFill="WHITE">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <HBox.margin>
+                                    <Insets left="20.0" right="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="320.0">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                           </VBox.margin>
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID:        ">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Text>
+                              <TextField fx:id="tf_id" editable="false" prefHeight="27.0" prefWidth="261.0" promptText="Auto generated ID" styleClass="textField" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="20.0" prefHeight="37.0" prefWidth="320.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name:  ">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Text>
+                              <TextField fx:id="tf_name" onKeyPressed="#onNameTyping" prefHeight="27.0" prefWidth="261.0" promptText="Enter full name" styleClass="textField" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="62.0" prefHeight="37.0" prefWidth="320.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gender:">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Text>
+                              <ComboBox fx:id="cb_gender" prefHeight="25.0" prefWidth="257.0" promptText="Select Gender" styleClass="textField" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="227.0" prefHeight="37.0" prefWidth="320.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Class:    ">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Text>
+                              <ComboBox fx:id="cb_class" prefHeight="25.0" prefWidth="257.0" promptText="Select class" styleClass="textField" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="156.0" prefHeight="37.0" prefWidth="320.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email:  ">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Text>
+                              <TextField fx:id="tf_house" onKeyPressed="#onHouseTyping" prefHeight="27.0" prefWidth="261.0" promptText="Guardian email (Optional)" styleClass="textField" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Subjects Offering" underline="true">
                            <font>
-                              <Font name="System Bold" size="15.0" />
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Text>
+                        <HBox alignment="CENTER" layoutX="20.0" layoutY="259.0" prefHeight="37.0" prefWidth="320.0">
+                           <children>
+                              <ComboBox fx:id="cb_subjects" prefHeight="27.0" prefWidth="200.0" promptText="Select Subject" styleClass="textField" />
+                              <Button mnemonicParsing="false" onAction="#handleAddSubject" prefHeight="25.0" prefWidth="52.0" styleClass="alt_button" text="Add" textFill="#fcf8f8">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" top="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+         </left>
+         <right>
+            <StackPane BorderPane.alignment="CENTER">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="376.0" prefWidth="321.0" style="-fx-background-color: #0f3460;">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="320.0">
+                           <children>
+                              <Text fill="#b2a7a7" strokeType="OUTSIDE" strokeWidth="0.0" text="ID:        ">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="txt_id" fill="#eee8e8" strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="320.0">
+                           <children>
+                              <Text fill="#b2a7a7" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:  ">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="txt_name" fill="#eee8e8" strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="320.0">
+                           <children>
+                              <Text fill="#b2a7a7" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender:">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="txt_gender" fill="#eee8e8" strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="320.0">
+                           <children>
+                              <Text fill="#b2a7a7" strokeType="OUTSIDE" strokeWidth="0.0" text="Class:    ">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="txt_class" fill="#eee8e8" strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="320.0">
+                           <children>
+                              <Text fill="#b2a7a7" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:  ">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="txt_house" fill="#eee8e8" strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Subjects Offering">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Text>
+                                    <ListView fx:id="lv_elective" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="120.0" prefWidth="270.0" style="-fx-background-color: transparent; -fx-border-color: red;" />
+                                 </children>
+                                 <padding>
+                                    <Insets left="2.0" right="2.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                        <Text fill="#fcfcfc" strokeType="OUTSIDE" strokeWidth="0.0" text="Right Click on Subject to Remove">
+                           <font>
+                              <Font name="System Bold" size="8.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="tf_id" editable="false" prefHeight="27.0" prefWidth="261.0" promptText="Auto generated ID" styleClass="textField" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="20.0" prefHeight="37.0" prefWidth="320.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name:  ">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Text>
-                        <TextField fx:id="tf_name" onKeyPressed="#onNameTyping" prefHeight="27.0" prefWidth="261.0" promptText="Enter full name" styleClass="textField" />
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="62.0" prefHeight="37.0" prefWidth="320.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gender:">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Text>
-                        <ComboBox fx:id="cb_gender" prefHeight="25.0" prefWidth="257.0" promptText="Select Gender" styleClass="textField" />
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="227.0" prefHeight="37.0" prefWidth="320.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Class:    ">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Text>
-                        <ComboBox fx:id="cb_class" prefHeight="25.0" prefWidth="257.0" promptText="Select class" styleClass="textField" />
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="156.0" prefHeight="37.0" prefWidth="320.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="House:  ">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Text>
-                        <TextField fx:id="tf_house" onKeyPressed="#onHouseTyping" prefHeight="27.0" prefWidth="261.0" promptText="Student House (Optional)" styleClass="textField" />
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Elective Subjects" underline="true">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </Text>
-                  <HBox alignment="CENTER" layoutX="20.0" layoutY="259.0" prefHeight="37.0" prefWidth="320.0">
-                     <children>
-                        <ComboBox fx:id="cb_subjects" prefHeight="27.0" prefWidth="200.0" promptText="Select Elective Subject" styleClass="textField" />
-                        <Button mnemonicParsing="false" onAction="#handleAddSubject" prefHeight="25.0" prefWidth="52.0" styleClass="alt_button" text="Add" textFill="#fcf8f8">
+                        <Button mnemonicParsing="false" onAction="#handleSubmit" prefHeight="27.0" prefWidth="113.0" text="Submit" textFill="#282323">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
-                           <HBox.margin>
-                              <Insets left="5.0" />
-                           </HBox.margin>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" />
+                           </padding>
                         </Button>
                      </children>
-                     <VBox.margin>
-                        <Insets left="10.0" right="10.0" top="15.0" />
-                     </VBox.margin>
-                  </HBox>
+                  </VBox>
                </children>
-            </VBox>
-         </children>
-      </StackPane>
-   </left>
-   <right>
-      <StackPane BorderPane.alignment="CENTER">
-         <children>
-            <VBox alignment="CENTER" prefHeight="376.0" prefWidth="321.0" style="-fx-background-color: #0f3460;">
+            </StackPane>
+         </right>
+         <top>
+            <AnchorPane onMouseDragged="#handleMouseDrag" onMousePressed="#handleMousePress" prefHeight="32.0" prefWidth="680.0" style="-fx-background-color: #0f3460;">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="320.0">
-                     <children>
-                        <Text fill="#b2a7a7" strokeType="OUTSIDE" strokeWidth="0.0" text="ID:        ">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="txt_id" fill="#eee8e8" strokeType="OUTSIDE" strokeWidth="0.0">
-                           <font>
-                              <Font name="Arial Rounded MT Bold" size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="5.0" right="5.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="320.0">
-                     <children>
-                        <Text fill="#b2a7a7" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:  ">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="txt_name" fill="#eee8e8" strokeType="OUTSIDE" strokeWidth="0.0">
-                           <font>
-                              <Font name="Arial Rounded MT Bold" size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="5.0" right="5.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="320.0">
-                     <children>
-                        <Text fill="#b2a7a7" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender:">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="txt_gender" fill="#eee8e8" strokeType="OUTSIDE" strokeWidth="0.0">
-                           <font>
-                              <Font name="Arial Rounded MT Bold" size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="5.0" right="5.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="320.0">
-                     <children>
-                        <Text fill="#b2a7a7" strokeType="OUTSIDE" strokeWidth="0.0" text="Class:    ">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="txt_class" fill="#eee8e8" strokeType="OUTSIDE" strokeWidth="0.0">
-                           <font>
-                              <Font name="Arial Rounded MT Bold" size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="5.0" right="5.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="320.0">
-                     <children>
-                        <Text fill="#b2a7a7" strokeType="OUTSIDE" strokeWidth="0.0" text="House:  ">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="txt_house" fill="#eee8e8" strokeType="OUTSIDE" strokeWidth="0.0">
-                           <font>
-                              <Font name="Arial Rounded MT Bold" size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="5.0" right="5.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox>
-                     <children>
-                        <VBox>
-                           <children>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Subjects-Core">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Text>
-                              <ListView fx:id="lv_core" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="120.0" prefWidth="270.0" style="-fx-background-color: transparent; -fx-border-color: green;" />
-                           </children>
-                           <padding>
-                              <Insets left="2.0" right="2.0" />
-                           </padding>
-                        </VBox>
-                        <VBox>
-                           <children>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Subjects-Electives">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Text>
-                              <ListView fx:id="lv_elective" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="120.0" prefWidth="270.0" style="-fx-background-color: transparent; -fx-border-color: red;" />
-                           </children>
-                           <padding>
-                              <Insets left="2.0" right="2.0" />
-                           </padding>
-                        </VBox>
-                     </children>
-                     <padding>
-                        <Insets left="5.0" right="5.0" top="10.0" />
-                     </padding>
-                  </HBox>
-                  <Text fill="#fcfcfc" strokeType="OUTSIDE" strokeWidth="0.0" text="Right Click on Elective Subject to Remove">
-                     <font>
-                        <Font name="System Bold" size="8.0" />
-                     </font>
-                  </Text>
-                  <Button mnemonicParsing="false" onAction="#handleSubmit" prefHeight="27.0" prefWidth="113.0" text="Submit" textFill="#282323">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
+                  <ImageView fitHeight="30.0" fitWidth="22.0" layoutX="644.0" layoutY="5.0" onMouseClicked="#handleCloseButton" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                     <image>
+                        <Image url="@../images/icons8_Close_48px.png" />
+                     </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                     <padding>
-                        <Insets bottom="5.0" />
-                     </padding>
-                  </Button>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+                  <Text fill="WHITE" layoutX="197.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NEW STUDENT REGISTRATION" textAlignment="CENTER" underline="true">
+                     <font>
+                        <Font name="Bell MT Bold" size="18.0" />
+                     </font>
+                  </Text>
                </children>
-            </VBox>
-         </children>
-      </StackPane>
-   </right>
-   <top>
-      <AnchorPane onMouseDragged="#handleMouseDrag" onMousePressed="#handleMousePress" prefHeight="32.0" prefWidth="680.0" style="-fx-background-color: #0f3460;">
-         <children>
-            <ImageView fitHeight="30.0" fitWidth="22.0" layoutX="644.0" layoutY="5.0" onMouseClicked="#handleCloseButton" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-               <image>
-                  <Image url="@../images/icons8_Close_48px.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </ImageView>
-            <Text fill="WHITE" layoutX="197.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NEW STUDENT REGISTRATION" textAlignment="CENTER" underline="true">
-               <font>
-                  <Font name="Bell MT Bold" size="18.0" />
-               </font>
-            </Text>
-         </children>
-      </AnchorPane>
-   </top>
-   <effect>
-      <DropShadow height="88.41" radius="43.705" width="88.41" />
-   </effect>
-</BorderPane>
+            </AnchorPane>
+         </top>
+         <effect>
+            <DropShadow height="88.41" radius="43.705" width="88.41" />
+         </effect>
+      </BorderPane>
+   </children>
+</StackPane>

@@ -1,7 +1,6 @@
 package pojo_classes;
 
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.List;
 import org.bson.Document;
 import org.bson.types.ObjectId;
@@ -15,7 +14,7 @@ public class Students {
     String id;
     String studentName;
     String studentClass;
-    String studentHouse;
+    String guardianEmail ;
     String studentGender;
     List<String> studentSubjects;
     Instant createdAt;
@@ -24,7 +23,7 @@ public class Students {
         this.id = id;
         this.studentName = studentName;
         this.studentClass = studentClass;
-        this.studentHouse = studentHouse;
+        this.guardianEmail = studentHouse;
         this.studentGender = studentGender;
         this.studentSubjects = studentSubjects;
         this.createdAt = createdAt;
@@ -58,12 +57,12 @@ public class Students {
         this.studentClass = studentClass;
     }
 
-    public String getStudentHouse() {
-        return studentHouse;
+    public String getGuardianEmail() {
+        return guardianEmail;
     }
 
-    public void setStudentHouse(String studentHouse) {
-        this.studentHouse = studentHouse;
+    public void setGuardianEmail(String studentHouse) {
+        this.guardianEmail = studentHouse;
     }
 
     public String getStudentGender() {
@@ -97,7 +96,7 @@ public class Students {
                 .append("createdAt", this.createdAt)
                 .append("studentClass", this.studentClass)
                 .append("studentGender", this.studentGender)
-                .append("studentHouse", this.studentHouse)
+                .append("guardianEmail", this.guardianEmail)
                 .append("studentName", this.studentName)
                 .append("studentSubjects",this.studentSubjects);
 
@@ -110,7 +109,7 @@ public class Students {
         student.id=doc.getString("id");
         student.studentClass=doc.getString("studentClass");
         student.studentGender=doc.getString("studentGender");
-        student.studentHouse=doc.getString("studentHouse");
+        student.guardianEmail=doc.getString("guardianEmail");
         student.studentName=doc.getString("studentName");
         student.studentSubjects=(List<String>)doc.get("studentSubjects");
         return student;

@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.util.Callback;
 
 /**
@@ -20,8 +22,16 @@ public class ActionButtonTableCell<S> extends TableCell<S, Button> {
     public ActionButtonTableCell(String label,String style, Function< S, S> function) {
         this.getStyleClass().add("action-button-table-cell");
 
-        this.actionButton = new Button(label);
+      
+        ImageView image = new ImageView();
+        Image imProfile = new Image(getClass().getResourceAsStream(label));
+        image.setFitHeight(18);
+        image.setFitWidth(18);
+        image.setImage(imProfile);
+        this.actionButton = new Button();
         this.actionButton.getStylesheets().add(style);
+        this.actionButton.setMinHeight(18);
+        this.actionButton.setGraphic(image);
         this.actionButton.setOnAction((ActionEvent e) -> {
             function.apply(getCurrentItem());
         });

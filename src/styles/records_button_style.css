@@ -7,18 +7,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Author     : emman
 */
 
-
-
 .button{
     -fx-font-weight:bold;
     -fx-background-color: #306754;
     -fx-text-fill:  #ffffff;
     -fx-background-radius:10;
+    -fx-font-size: 13px
     
 }
 .button:hover{
     -fx-font-weight:bold;
-    -fx-background-color: #f1fafb;
+    -fx-background-color: #305f67;
     -fx-text-fill:  #000000;
     -fx-background-radius:10;
     -fx-border-color: #000000;
@@ -27,10 +26,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 .button:pressed{
     -fx-font-weight:bold;
-    -fx-background-color: #ffffff;
+    -fx-background-color: #305f67;
     -fx-text-fill:  #000000;
     -fx-background-radius:12;
     -fx-border-color: #000000;
     -fx-border-radius: 11;
     -fx-rotate: 5;
 }
+
+

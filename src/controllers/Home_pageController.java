@@ -1,5 +1,6 @@
 package controllers;
 
+import com.jfoenix.controls.JFXButton;
 import global_classes.GlobalFuncions;
 import global_classes.MongoDbAdmin;
 import java.io.IOException;
@@ -19,7 +20,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import pojo_classes.DatabaseName;
 
 /**
  * FXML Controller class
@@ -41,32 +41,38 @@ public class Home_pageController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    
-    String selectedPage="Student";
+
+    String selectedPage = "Student";
     double[] xOffset = {0}, yOffset = {0};
     @FXML
     private ImageView btn_maximize;
     @FXML
     private ImageView btn_minimize;
 
-    
-    GlobalFuncions gf=new GlobalFuncions();
-     MongoDbAdmin MA = new MongoDbAdmin();
+    GlobalFuncions gf = new GlobalFuncions();
+    MongoDbAdmin MA = new MongoDbAdmin();
+    @FXML
+    private JFXButton btn_student;
+    @FXML
+    private JFXButton btn_score;
+    @FXML
+    private JFXButton btn_report;
 
-   
+    String style = "/styles/sideSelect.css";
+
+      
     @Override
-    public void initialize(URL url, ResourceBundle rb) {    
-        selectedPage="Student";
-          gf.sideBarClick(center_container, "/screens/Students_screen.fxml"); 
-         new DatabaseName().setDatabase(Year.now().toString());
-        
-        
-         
+    public void initialize(URL url, ResourceBundle rb) {
+        selectedPage = "Student";
+        gf.sideBarClick(center_container, "/screens/Students_screen.fxml");
+        this.btn_student.getStylesheets().add(style);
+       
+
     }
 
     @FXML
     private void handleCloseButton(MouseEvent event) {
-      gf.closeWindow(event);
+        gf.closeWindow(event);
     }
 
     @FXML
@@ -96,14 +102,14 @@ public class Home_pageController implements Initializable {
         Rectangle2D bounds = screen.getVisualBounds();
 
         if (stage.getWidth() < bounds.getWidth()) {
-           
+
             stage.setX(bounds.getMinX());
             stage.setY(bounds.getMinY());
             stage.setWidth(bounds.getWidth());
             stage.setHeight(bounds.getHeight());
         } else {
             stage.setWidth(900);
-            stage.setHeight(580);        
+            stage.setHeight(580);
             Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
             stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
             stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
@@ -118,35 +124,38 @@ public class Home_pageController implements Initializable {
 
     @FXML
     private void handleStudentClick(ActionEvent event) throws IOException {
-        if(!"Student".equals(selectedPage)){
-             gf.sideBarClick(center_container, "/screens/Students_screen.fxml");
-            selectedPage= "Student";
-        }                   
+        if (!"Student".equals(selectedPage)) {
+            gf.sideBarClick(center_container, "/screens/Students_screen.fxml");
+            selectedPage = "Student";
+            this.btn_student.getStylesheets().remove(style);
+            this.btn_score.getStylesheets().remove(style);
+            this.btn_report.getStylesheets().remove(style);
+            this.btn_student.getStylesheets().add(style);
+        }
     }
-
 
     @FXML
     private void handleScoreClick(ActionEvent event) {
-         if(!"Scores".equals(selectedPage)){
-             gf.sideBarClick(center_container, "/screens/Scores_Screen.fxml");
-             selectedPage="Scores";
-        }  
+        if (!"Scores".equals(selectedPage)) {
+            gf.sideBarClick(center_container, "/screens/Scores_Screen.fxml");
+            selectedPage = "Scores";
+        }
     }
 
     @FXML
     private void handleReportClick(ActionEvent event) {
-    }
-
-    @FXML
-    private void handleReportFileClick(ActionEvent event) {
-    }
-
-    @FXML
-    private void handleBackupClick(ActionEvent event) {
+         if (!"Report".equals(selectedPage)) {
+            gf.sideBarClick(center_container, "/screens/ReportScreen.fxml");
+            selectedPage = "Report";
+        }
     }
 
     @FXML
     private void handleSettingsClick(ActionEvent event) {
+          if (!"Settings".equals(selectedPage)) {
+            gf.sideBarClick(center_container, "/screens/SettingsPage.fxml");
+            selectedPage = "Settings";
+        }
     }
 
 }

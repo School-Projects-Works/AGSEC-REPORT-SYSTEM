@@ -68,36 +68,25 @@ public class LoginScreenController implements Initializable {
 
     @FXML
     private void logUserIn(ActionEvent event) throws IOException {
-
+// 
         if (!tf_username.getText().isEmpty() && !tf_userPassword.getText().isEmpty()) {
+            txt_error.setText("");
             if (MA.loginAdmin(tf_username.getText(), tf_userPassword.getText())) {
-                if (!"admin".equals(tf_userPassword.getText())) {
-                    txt_error.setText("");
-                    Screen screen = Screen.getPrimary();
-                    Rectangle2D bounds = screen.getVisualBounds();
-                    Parent root;
-                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    if (!MA.getYears().isEmpty() && MA.getYears().contains(Year.now().toString())) {
-                        root = FXMLLoader.load(getClass().getResource("/screens/home_page.fxml"));
-                        stage.setX(bounds.getMinX());
-                        stage.setY(bounds.getMinY());
-                        stage.setWidth(bounds.getWidth());
-                        stage.setHeight(bounds.getHeight());
-                        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-                        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
-                        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
-                    } else {
-                        root = FXMLLoader.load(getClass().getResource("/screens/Setup_year.fxml"));
-                    }
+                Screen screen = Screen.getPrimary();
+                Rectangle2D bounds = screen.getVisualBounds();
+                Parent root;
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                root = FXMLLoader.load(getClass().getResource("/screens/home_page.fxml"));
+                stage.setX(bounds.getMinX());
+                stage.setY(bounds.getMinY());
+                stage.setWidth(bounds.getWidth());
+                stage.setHeight(bounds.getHeight());
+                Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+                stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
+                stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
 
-                    Scene scene = new Scene(root);
-                    stage.setScene(scene);
-
-                } else {
-                    Parent root = FXMLLoader.load(getClass().getResource("/screens/NewPassword.fxml"));
-                    gf.openNewWindow(root);
-
-                }
             } else {
                 txt_error.setText("Incorrect UserName or Password");
             }
@@ -151,7 +140,7 @@ public class LoginScreenController implements Initializable {
         if (event.getCode().equals(KeyCode.ENTER)) {
             if (!tf_username.getText().isEmpty() && !tf_userPassword.getText().isEmpty()) {
                 if (MA.loginAdmin(tf_username.getText(), tf_userPassword.getText())) {
-                    if (!"admin".equals(tf_userPassword.getText())) {
+                  
                         txt_error.setText("");
                         Screen screen = Screen.getPrimary();
                         Rectangle2D bounds = screen.getVisualBounds();
@@ -166,12 +155,7 @@ public class LoginScreenController implements Initializable {
                         Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
                         stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
                         stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
-                    } else {
-
-                        Parent root = FXMLLoader.load(getClass().getResource("/screens/NewPassword.fxml"));
-                        gf.openNewWindow(root);
-
-                    }
+                  
                 } else {
                     txt_error.setText("Incorrect UserName or Password");
                 }

@@ -7,12 +7,14 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="480.0" prefWidth="852.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Students_screenController">
+<StackPane fx:id="container" prefHeight="534.0" prefWidth="1051.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Students_screenController">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
@@ -25,7 +27,7 @@
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </TextField>
-                        <Button mnemonicParsing="false" onAction="#handleNewStudentClick" styleClass="addButton" stylesheets="@../styles/students_screen.css" text="New Student" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#handleNewStudentClick" prefHeight="29.0" prefWidth="122.0" styleClass="addButton" stylesheets="@../styles/students_screen.css" text="New Student" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -39,6 +41,28 @@
                               <DropShadow />
                            </effect>
                         </Button>
+                        <Button layoutX="587.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleExport" prefHeight="29.0" prefWidth="134.0" styleClass="addButton" stylesheets="@../styles/students_screen.css" text="Export Students" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <ImageView fitHeight="31.0" fitWidth="32.0" onMouseClicked="#handlerRefresh" pickOnBounds="true" preserveRatio="true" styleClass="refresh">
+                           <image>
+                              <Image url="@../images/icons8_Refresh_64px_5.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="25.0" />
+                           </HBox.margin>
+                        </ImageView>
                      </children>
                   </HBox>
 <!--                  <JFXButton fx:id="btn_newStudent" graphicTextGap="10.0" maxHeight="-Infinity" onAction="#handleNewStudentClick" prefHeight="29.0" prefWidth="134.0" styleClass="addButton" stylesheets="@../styles/students_screen.css" text="New Student" textFill="WHITE">
@@ -72,13 +96,12 @@
                   <TableView fx:id="tbv_students" prefHeight="413.0" prefWidth="852.0" StackPane.alignment="CENTER">
                     <columns>
                       <TableColumn fx:id="col_id" maxWidth="120.0" minWidth="80.0" prefWidth="100.0" text="ID" />
-                      <TableColumn fx:id="col_name" minWidth="120.0" prefWidth="75.0" text="Name" />
+                      <TableColumn fx:id="col_name" minWidth="150.0" prefWidth="75.0" text="Name" />
                         <TableColumn fx:id="col_gender" maxWidth="140.0" minWidth="90.0" prefWidth="100.0" text="Gender" />
                         <TableColumn fx:id="col_class" maxWidth="140.0" minWidth="90.0" prefWidth="100.0" text="Class" />
-                        <TableColumn fx:id="col_house" maxWidth="120.0" minWidth="80.0" prefWidth="100.0" text="House" />
-                        <TableColumn fx:id="col_view" editable="false" maxWidth="80.0" minWidth="70.0" sortable="false" text="View" />
+                        <TableColumn fx:id="col_house" minWidth="150.0" prefWidth="100.0" text="Guardian email" />
+                        <TableColumn fx:id="col_view" editable="false" maxWidth="80.0" minWidth="70.0" sortable="false" text="Edit" />
                         <TableColumn fx:id="col_records" editable="false" maxWidth="80.0" minWidth="70.0" sortable="false" text="Report" />
-                        <TableColumn fx:id="col_update" editable="false" maxWidth="80.0" minWidth="70.0" sortable="false" text="Update" />
                         <TableColumn fx:id="col_delete" editable="false" maxWidth="80.0" minWidth="70.0" sortable="false" text="Delete" />
                     </columns>
                      <columnResizePolicy>

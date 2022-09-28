@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/H:/Projects/GitHub/ADVANCED%20REPORT%20SYSTEM/src/global_classes/PDFGeneration.java</file>
+            <file>file:/H:/Projects/GitHub/ADVANCED%20REPORT%20SYSTEM/src/controllers/Scores_ScreenController.java</file>
+            <file>file:/H:/Projects/GitHub/ADVANCED%20REPORT%20SYSTEM/src/controllers/ReportScreenController.java</file>
+            <file>file:/H:/Projects/GitHub/ADVANCED%20REPORT%20SYSTEM/src/pojo_classes/MapClass.java</file>
+            <file>file:/H:/Projects/GitHub/ADVANCED%20REPORT%20SYSTEM/src/pojo_classes/Report.java</file>
+            <file>file:/H:/Projects/GitHub/ADVANCED%20REPORT%20SYSTEM/src/global_classes/GlobalFuncions.java</file>
+        </group>
     </open-files>
 </project-private>

@@ -9,6 +9,7 @@ import org.bson.types.ObjectId;
  */
 public class Scores {
 
+    String id;
     String st_name;
     String subject;
     String st_class;
@@ -24,11 +25,13 @@ public class Scores {
     String grade;
     String position;
     String remarks;
+    String studentID;
 
     public Scores() {
     }
 
-    public Scores(String st_name, String subject, String st_class, String term, double exercise, double midTerms, double homeWork, double classTotal, double classPercent, double examsScore, double examsPercent, double overAllTotal, String grade, String position, String remarks) {
+    public Scores(String id, String studentID, String st_name, String subject, String st_class, String term, double exercise, double midTerms, double homeWork, double classTotal, double classPercent, double examsScore, double examsPercent, double overAllTotal, String grade, String position, String remarks) {
+        this.id = id;
         this.st_name = st_name;
         this.subject = subject;
         this.st_class = st_class;
@@ -44,6 +47,15 @@ public class Scores {
         this.grade = grade;
         this.position = position;
         this.remarks = remarks;
+        this.studentID = studentID;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getSt_name() {
@@ -166,8 +178,14 @@ public class Scores {
         this.remarks = remarks;
     }
 
-    
-    
+    public String getStudentID() {
+        return studentID;
+    }
+
+    public void setStudentID(String studentID) {
+        this.studentID = studentID;
+    }
+
     public Document toBsonDocs() {
         Document doc = new Document("_id", new ObjectId());
         doc.append("st_name", this.st_name)
@@ -180,11 +198,13 @@ public class Scores {
                 .append("classPercent", this.classPercent)
                 .append("examsPercent", this.examsPercent)
                 .append("overAllTotal", this.overAllTotal)
-                .append("classPercent", this.grade)
+                .append("grade", this.grade)
                 .append("position", this.position)
                 .append("remarks", this.remarks)
                 .append("classTotal", this.classTotal)
-                .append("examsScore", this.examsScore);
+                .append("id", this.id)
+                .append("examsScore", this.examsScore)
+                .append("studentID", this.studentID);
 
         return doc;
     }
@@ -194,18 +214,20 @@ public class Scores {
         score.classPercent = doc.getDouble("classPercent");
         score.classTotal = doc.getDouble("classTotal");
         score.examsPercent = doc.getDouble("examsPercent");
-        score.exercise=doc.getDouble("exercise");
-        score.examsScore=doc.getDouble("examsScore");
-        score.grade=doc.getString("grade");
-        score.homeWork=doc.getDouble("homeWork");
-        score.midTerms=doc.getDouble("midTerms");
-        score.overAllTotal=doc.getDouble("overAllTotal");
-        score.position=doc.getString("position");
-        score.remarks=doc.getString("remarks");
-        score.st_class=doc.getString("st_class");
-        score.st_name=doc.getString("st_name");
-        score.subject=doc.getString("subject");
-        score.term=doc.getString("term");
+        score.exercise = doc.getDouble("exercise");
+        score.examsScore = doc.getDouble("examsScore");
+        score.grade = doc.getString("grade");
+        score.homeWork = doc.getDouble("homeWork");
+        score.midTerms = doc.getDouble("midTerms");
+        score.overAllTotal = doc.getDouble("overAllTotal");
+        score.position = doc.getString("position");
+        score.remarks = doc.getString("remarks");
+        score.st_class = doc.getString("st_class");
+        score.st_name = doc.getString("st_name");
+        score.subject = doc.getString("subject");
+        score.term = doc.getString("term");
+        score.id = doc.getString("id");
+        score.studentID=doc.getString("studentID");
         return score;
     }
 

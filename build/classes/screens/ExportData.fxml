@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<StackPane fx:id="container" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ExportDataController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="133.0" prefWidth="359.0">
+         <children>
+            <Text layoutX="21.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Subject and Export data" textAlignment="CENTER" wrappingWidth="359.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+               <font>
+                  <Font name="Arial Black" size="19.0" />
+               </font>
+            </Text>
+            <JFXComboBox fx:id="cmb_subject" layoutX="42.0" layoutY="54.0" onAction="#handleSubjectSelection" prefHeight="25.0" prefWidth="280.0" />
+            <JFXButton fx:id="btn_export" layoutX="71.0" layoutY="94.0" onAction="#handleExport" prefHeight="25.0" prefWidth="95.0" styleClass="mainFxmlClass" stylesheets="@../styles/add_electives.css" text="Export" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="207.0" layoutY="94.0" onAction="#handleCancel" prefHeight="25.0" prefWidth="95.0" stylesheets="@../styles/delete_button_style.css" text="Cancel" />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

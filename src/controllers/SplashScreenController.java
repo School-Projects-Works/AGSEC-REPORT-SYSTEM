@@ -3,7 +3,6 @@ package controllers;
 
 import global_classes.GlobalFuncions;
 import global_classes.MongoDbAdmin;
-import global_classes.MongodbServices;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -68,6 +67,30 @@ public class SplashScreenController implements Initializable {
             gf.inforAlert("UI Error", ex.getMessage(), Alert.AlertType.ERROR);
         }
     }
+      
+        
+      private void _openSeetings() {
+        Stage oldStage = (Stage) img.getScene().getWindow();
+        Parent root;
+        try {
+            FXMLLoader loader =new  FXMLLoader(getClass().getResource("/screens/SettingsPage.fxml"));
+            root=(Parent) loader.load();
+            SettingsPageController controller = loader.getController();
+            controller.setLocation("New Stage");
+            Scene scene = new Scene(root);
+                        
+            oldStage.setResizable(false);
+            oldStage.setScene(scene);
+            //stage.getIcons().add(new Image("/images/image-removebg-preview.png"));
+            oldStage.show();
+            Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+            oldStage.setX((primScreenBounds.getWidth() - oldStage.getWidth()) / 2);
+            oldStage.setY((primScreenBounds.getHeight() - oldStage.getHeight()) / 2);
+
+        } catch (IOException ex) {
+            gf.inforAlert("UI Error", ex.getMessage(), Alert.AlertType.ERROR);
+        }
+    }
     
      private void splashTimer() {
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(150), new EventHandler<ActionEvent>() {
@@ -78,15 +101,11 @@ public class SplashScreenController implements Initializable {
                 i+=5;
                 //progress.setProgress(i);
                 if (i == 100) {
-                    if(MA.databaseConnection()!=null){
-                        
-                       MA.createConfigurations();
-                        _openDashBoard(event);
+                    if(!MA.getDatabasename().isEmpty()&&MA.getConfig().getId()!=null){
+                         _openDashBoard(event);
                     }else{
-                        gf.inforAlert("Database Error", "Unable to Connect to Database Client", Alert.AlertType.ERROR);
-                    }
-                  
-
+                        _openSeetings();
+                    }                                   
                 } else {
 
                 }
