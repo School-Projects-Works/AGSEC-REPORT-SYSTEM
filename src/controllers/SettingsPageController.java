@@ -214,7 +214,6 @@ public class SettingsPageController implements Initializable {
     private void onSaveConfig(ActionEvent event) {
         Stage stage = (Stage) btn_save.getScene().getWindow();
         if (cb_year.getValue() != null) {
-
             config.setYear(cb_year.getValue());
             if (cb_term.getValue() != null) {
                 config.setTerm(cb_term.getValue());

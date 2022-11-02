@@ -245,7 +245,7 @@ public class Students_screenController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to Export Sudents Data?", submit, cancel);
         alert.initStyle(StageStyle.UNDECORATED);
         alert.setHeaderText(null);
-        alert.getDialogPane().getStylesheets().add("/styles/dialog.css");
+       
         Optional<ButtonType> result = alert.showAndWait();
         if (result.orElse(cancel) == submit) {
             Service<File> service = new Service<File>() {
